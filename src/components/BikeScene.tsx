@@ -68,7 +68,7 @@ function MotorcycleModel() {
         {/* Headlight */}
         <mesh position={[1.5, 0.5, 0]}>
           <sphereGeometry args={[0.12, 16, 16]} />
-          <meshStandardMaterial color="#ff6b00" emissive="#ff6b00" emissiveIntensity={2} />
+          <meshStandardMaterial color="#d41920" emissive="#d41920" emissiveIntensity={2} />
         </mesh>
       </group>
     </Float>
