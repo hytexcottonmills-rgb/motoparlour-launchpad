@@ -19,8 +19,3 @@ export default defineConfig(({ mode }) => ({
     },
   },
 }));
-export default defineConfig({
-  base: '/motoparlour-web/', // Replace with your actual repo name
-  plugins: [react()],
-  // ... other config
-})
