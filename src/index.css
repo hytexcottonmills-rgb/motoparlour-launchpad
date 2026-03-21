@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    --background: 0 0% 6%;
-    --foreground: 0 0% 92%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 9%;
-    --card-foreground: 0 0% 92%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 9%;
-    --popover-foreground: 0 0% 92%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 24 100% 50%;
+    --primary: 358 82% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 14%;
+    --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 85%;
 
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 55%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 50%;
 
-    --accent: 45 100% 50%;
-    --accent-foreground: 0 0% 6%;
+    --accent: 0 0% 90%;
+    --accent-foreground: 0 0% 4%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 24 100% 50%;
+    --border: 0 0% 14%;
+    --input: 0 0% 14%;
+    --ring: 358 82% 50%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Custom tokens */
-    --glow-orange: 24 100% 50%;
-    --carbon: 0 0% 8%;
-    --asphalt: 0 0% 12%;
-    --chrome: 0 0% 75%;
-    --steel: 0 0% 45%;
+    --glow: 358 82% 50%;
+    --carbon: 0 0% 6%;
+    --asphalt: 0 0% 10%;
+    --chrome: 0 0% 80%;
+    --steel: 0 0% 42%;
   }
 }
 
@@ -61,19 +61,19 @@
 
 @layer components {
   .glass-card {
-    @apply bg-card/40 backdrop-blur-xl border border-white/[0.06] rounded-lg;
+    @apply bg-card/50 backdrop-blur-xl border border-white/[0.05] rounded-md;
     box-shadow: 
-      0 0 0 1px hsl(var(--primary) / 0.05),
-      0 8px 32px hsl(0 0% 0% / 0.4),
-      inset 0 1px 0 hsl(0 0% 100% / 0.04);
+      0 0 0 1px hsl(var(--primary) / 0.04),
+      0 8px 32px hsl(0 0% 0% / 0.5),
+      inset 0 1px 0 hsl(0 0% 100% / 0.03);
   }
 
   .glass-card:hover {
     box-shadow: 
-      0 0 0 1px hsl(var(--primary) / 0.15),
-      0 12px 48px hsl(0 0% 0% / 0.5),
-      0 0 24px hsl(var(--primary) / 0.08),
-      inset 0 1px 0 hsl(0 0% 100% / 0.06);
+      0 0 0 1px hsl(var(--primary) / 0.12),
+      0 12px 48px hsl(0 0% 0% / 0.6),
+      0 0 20px hsl(var(--primary) / 0.06),
+      inset 0 1px 0 hsl(0 0% 100% / 0.05);
   }
 
   .section-padding {

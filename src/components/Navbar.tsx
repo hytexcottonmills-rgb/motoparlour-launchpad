@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logoSrc from "@/assets/logo-motoparlour.jpg";
 
 const NAV_ITEMS = [
   { label: "HSRP Vault", href: "#hsrp" },
@@ -27,9 +28,8 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="font-display text-xl md:text-2xl font-bold tracking-wider uppercase">
-          <span className="text-primary">Moto</span>
-          <span className="text-foreground">parlour</span>
+        <a href="#" className="flex items-center">
+          <img src={logoSrc} alt="Moto Parlour" className="h-8 md:h-10 w-auto" />
         </a>
 
         {/* Desktop */}
