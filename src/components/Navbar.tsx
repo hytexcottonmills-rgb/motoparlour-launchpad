@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const NAV_ITEMS = [
+  { label: "About", href: "#about" },
   { label: "HSRP Vault", href: "#hsrp" },
   { label: "The Lab", href: "#lab" },
   { label: "Restoration", href: "#restoration" },
-  { label: "Wholesale", href: "#wholesale" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
