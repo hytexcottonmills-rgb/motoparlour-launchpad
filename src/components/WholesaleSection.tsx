@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import { Send } from "lucide-react";
+import { MessageCircle } from "lucide-react";
+
+const WHATSAPP_NUMBER = "919750222224";
 
 export default function WholesaleSection() {
   const { ref, isVisible } = useScrollReveal();
-  const [submitted, setSubmitted] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [formData, setFormData] = useState({ name: "", business: "", email: "", phone: "", message: "" });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    const text = `*New Wholesale Inquiry*%0A%0A*Name:* ${formData.name}%0A*Business:* ${formData.business}%0A*Email:* ${formData.email}%0A*Phone:* ${formData.phone}%0A*Message:* ${formData.message}`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, "_blank");
   };
+
+  const inputClass =
+    "w-full bg-secondary/50 border border-border rounded-sm px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-colors";
 
   return (
     <section id="wholesale" className="section-padding relative">
@@ -37,83 +48,49 @@ export default function WholesaleSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Interested in wholesale distribution? Drop us a line.
+            Interested in wholesale distribution? Fill in and we'll connect on WhatsApp.
           </p>
         </div>
 
-        {submitted ? (
-          <div className="glass-card p-12 text-center space-y-4 animate-fade-up">
-            <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto">
-              <Send className="w-6 h-6 text-primary" />
-            </div>
-            <h3 className="font-display text-2xl uppercase text-primary">Received</h3>
-            <p className="text-muted-foreground">Our team will get back to you within 24 hours.</p>
-          </div>
-        ) : (
-          <form
-            onSubmit={handleSubmit}
-            className={`glass-card p-8 md:p-12 space-y-6 transition-all duration-700 delay-300 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-          >
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="font-mono text-[10px] tracking-widest uppercase text-steel">Full Name</label>
-                <input
-                  type="text"
-                  required
-                  className="w-full bg-secondary/50 border border-border rounded-sm px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-colors"
-                  placeholder="Rajesh Sharma"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="font-mono text-[10px] tracking-widest uppercase text-steel">Business Name</label>
-                <input
-                  type="text"
-                  required
-                  className="w-full bg-secondary/50 border border-border rounded-sm px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-colors"
-                  placeholder="Auto Accessories Hub"
-                />
-              </div>
-            </div>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="font-mono text-[10px] tracking-widest uppercase text-steel">Email</label>
-                <input
-                  type="email"
-                  required
-                  className="w-full bg-secondary/50 border border-border rounded-sm px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-colors"
-                  placeholder="you@company.com"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="font-mono text-[10px] tracking-widest uppercase text-steel">Phone</label>
-                <input
-                  type="tel"
-                  required
-                  className="w-full bg-secondary/50 border border-border rounded-sm px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-colors"
-                  placeholder="+91 98765 43210"
-                />
-              </div>
+        <form
+          ref={formRef}
+          onSubmit={handleSubmit}
+          className={`glass-card p-8 md:p-12 space-y-6 transition-all duration-700 delay-300 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="font-mono text-[10px] tracking-widest uppercase text-steel">Full Name</label>
+              <input type="text" name="name" required value={formData.name} onChange={handleChange} className={inputClass} placeholder="Rajesh Sharma" />
             </div>
             <div className="space-y-2">
-              <label className="font-mono text-[10px] tracking-widest uppercase text-steel">Message</label>
-              <textarea
-                rows={4}
-                required
-                className="w-full bg-secondary/50 border border-border rounded-sm px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/20 transition-colors resize-none"
-                placeholder="Tell us about your distribution needs, volume requirements, and region..."
-              />
+              <label className="font-mono text-[10px] tracking-widest uppercase text-steel">Business Name</label>
+              <input type="text" name="business" required value={formData.business} onChange={handleChange} className={inputClass} placeholder="Auto Accessories Hub" />
             </div>
-            <button
-              type="submit"
-              className="w-full font-display text-sm uppercase tracking-wider bg-primary text-primary-foreground py-4 rounded-sm hover:bg-primary/90 transition-all active:scale-[0.98] duration-150 flex items-center justify-center gap-3"
-            >
-              <Send className="w-4 h-4" />
-              Submit Inquiry
-            </button>
-          </form>
-        )}
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="space-y-2">
+              <label className="font-mono text-[10px] tracking-widest uppercase text-steel">Email</label>
+              <input type="email" name="email" required value={formData.email} onChange={handleChange} className={inputClass} placeholder="you@company.com" />
+            </div>
+            <div className="space-y-2">
+              <label className="font-mono text-[10px] tracking-widest uppercase text-steel">Phone</label>
+              <input type="tel" name="phone" required value={formData.phone} onChange={handleChange} className={inputClass} placeholder="+91 98765 43210" />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <label className="font-mono text-[10px] tracking-widest uppercase text-steel">Message</label>
+            <textarea name="message" rows={4} required value={formData.message} onChange={handleChange} className={`${inputClass} resize-none`} placeholder="Tell us about your distribution needs, volume requirements, and region..." />
+          </div>
+          <button
+            type="submit"
+            className="w-full font-display text-sm uppercase tracking-wider bg-[hsl(142,70%,40%)] text-primary-foreground py-4 rounded-sm hover:bg-[hsl(142,70%,35%)] transition-all active:scale-[0.98] duration-150 flex items-center justify-center gap-3"
+          >
+            <MessageCircle className="w-4 h-4" />
+            Send via WhatsApp
+          </button>
+        </form>
       </div>
     </section>
   );
