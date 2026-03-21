@@ -23,7 +23,7 @@ function MotorcycleModel() {
         {/* Tank */}
         <mesh position={[0.3, 0.8, 0]}>
           <sphereGeometry args={[0.55, 32, 32]} />
-          <meshStandardMaterial color="#ff6b00" metalness={0.7} roughness={0.3} />
+          <meshStandardMaterial color="#d41920" metalness={0.7} roughness={0.3} />
         </mesh>
         {/* Engine block */}
         <mesh position={[-0.2, 0, 0]}>
