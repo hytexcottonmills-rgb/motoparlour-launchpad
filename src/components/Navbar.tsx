@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logoSrc from "@/assets/logo-motoparlour.jpg";
 
 const NAV_ITEMS = [
   { label: "HSRP Vault", href: "#hsrp" },
