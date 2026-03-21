@@ -85,7 +85,7 @@ export default function BikeScene() {
       >
         <Suspense fallback={null}>
           <ambientLight intensity={0.15} />
-          <spotLight position={[5, 5, 5]} intensity={1} color="#ff6b00" angle={0.4} penumbra={0.8} />
+          <spotLight position={[5, 5, 5]} intensity={1} color="#d41920" angle={0.4} penumbra={0.8} />
           <spotLight position={[-5, 3, -3]} intensity={0.5} color="#ffffff" angle={0.6} penumbra={1} />
           <pointLight position={[0, -2, 3]} intensity={0.3} color="#ff8c00" />
           <MotorcycleModel />
