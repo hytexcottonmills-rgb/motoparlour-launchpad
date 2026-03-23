@@ -1,6 +1,3 @@
-import { lazy, Suspense } from "react";
-
-const CarScene = lazy(() => import("./CarScene"));
 
 export default function HeroSection() {
   return (
@@ -11,7 +8,7 @@ export default function HeroSection() {
       {/* Subtle red ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.04] blur-[120px]" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-8 items-center pt-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center justify-center text-center pt-24">
         {/* Text */}
         <div className="space-y-8">
           <div className="space-y-2">
@@ -55,18 +52,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* 3D Scene */}
-        <div className="relative h-[400px] md:h-[550px] lg:h-[600px] opacity-0 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-          <Suspense
-            fallback={
-              <div className="flex items-center justify-center h-full">
-                <div className="w-16 h-16 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-              </div>
-            }
-          >
-            <CarScene />
-          </Suspense>
-        </div>
       </div>
 
       {/* Bottom line */}
