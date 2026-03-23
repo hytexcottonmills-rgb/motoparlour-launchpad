@@ -1,6 +1,3 @@
-import { lazy, Suspense } from "react";
-
-const CarScene = lazy(() => import("./CarScene"));
 
 export default function HeroSection() {
   return (
