@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
+import { usePWAInstall } from "@/hooks/usePWAInstall";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
@@ -12,6 +13,7 @@ const NAV_ITEMS = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isInstallable, install } = usePWAInstall();
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 50);
@@ -44,6 +46,15 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
+          {isInstallable && (
+            <button
+              onClick={install}
+              className="flex items-center gap-2 font-mono text-xs tracking-widest uppercase text-primary border border-primary/40 px-4 py-2 rounded-sm hover:bg-primary/10 transition-colors"
+            >
+              <Download size={14} />
+              Install App
+            </button>
+          )}
           <a
             href="#wholesale"
             className="font-display text-sm uppercase tracking-wider bg-primary text-primary-foreground px-5 py-2 rounded-sm hover:bg-primary/90 transition-colors active:scale-[0.97] duration-150"
@@ -52,14 +63,25 @@ export default function Navbar() {
           </a>
         </div>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-foreground active:scale-95 transition-transform"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile header actions */}
+        <div className="flex md:hidden items-center gap-3">
+          {isInstallable && (
+            <button
+              onClick={install}
+              className="flex items-center gap-1.5 font-mono text-[10px] tracking-wider uppercase text-primary border border-primary/40 px-3 py-1.5 rounded-sm hover:bg-primary/10 transition-colors"
+            >
+              <Download size={12} />
+              Install
+            </button>
+          )}
+          <button
+            className="text-foreground active:scale-95 transition-transform"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

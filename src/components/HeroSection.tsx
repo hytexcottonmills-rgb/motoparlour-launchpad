@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 
-const BikeScene = lazy(() => import("./BikeScene"));
+const CarScene = lazy(() => import("./CarScene"));
 
 export default function HeroSection() {
   return (
@@ -8,7 +8,7 @@ export default function HeroSection() {
       {/* Background grain */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-card" />
       
-      {/* Subtle orange ambient glow */}
+      {/* Subtle red ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.04] blur-[120px]" />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-8 items-center pt-24">
@@ -64,7 +64,7 @@ export default function HeroSection() {
               </div>
             }
           >
-            <BikeScene />
+            <CarScene />
           </Suspense>
         </div>
       </div>

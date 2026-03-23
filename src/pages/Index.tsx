@@ -7,10 +7,11 @@ import RestorationSection from "@/components/RestorationSection";
 import WholesaleSection from "@/components/WholesaleSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import MobileNav from "@/components/MobileNav";
 
 export default function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden pb-16 md:pb-0">
       <Navbar />
       <HeroSection />
       <AboutSection />
@@ -20,6 +21,7 @@ export default function Index() {
       <WholesaleSection />
       <ContactSection />
       <Footer />
+      <MobileNav />
     </div>
   );
 }
