@@ -8,7 +8,7 @@ export default function HeroSection() {
       {/* Subtle red ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.04] blur-[120px]" />
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-8 items-center pt-24">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center justify-center text-center pt-24">
         {/* Text */}
         <div className="space-y-8">
           <div className="space-y-2">

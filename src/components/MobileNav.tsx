@@ -1,11 +1,11 @@
-import { Home, Info, Phone, ShoppingBag, Wrench } from "lucide-react";
+import { Gauge, Users, ShieldCheck, Wrench, MapPin } from "lucide-react";
 
 const MOBILE_NAV_ITEMS = [
-  { label: "Home", href: "#", icon: Home },
-  { label: "About", href: "#about", icon: Info },
-  { label: "Products", href: "#hsrp", icon: ShoppingBag },
+  { label: "Home", href: "#", icon: Gauge },
+  { label: "About", href: "#about", icon: Users },
+  { label: "HSRP", href: "#hsrp", icon: ShieldCheck },
   { label: "Restore", href: "#restoration", icon: Wrench },
-  { label: "Contact", href: "#contact", icon: Phone },
+  { label: "Contact", href: "#contact", icon: MapPin },
 ];
 
 export default function MobileNav() {
