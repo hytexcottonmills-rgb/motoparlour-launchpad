@@ -55,18 +55,6 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* 3D Scene */}
-        <div className="relative h-[400px] md:h-[550px] lg:h-[600px] opacity-0 animate-fade-in" style={{ animationDelay: "0.5s" }}>
-          <Suspense
-            fallback={
-              <div className="flex items-center justify-center h-full">
-                <div className="w-16 h-16 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-              </div>
-            }
-          >
-            <CarScene />
-          </Suspense>
-        </div>
       </div>
 
       {/* Bottom line */}
